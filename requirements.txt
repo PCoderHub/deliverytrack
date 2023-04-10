@@ -1,0 +1,10 @@
+flask
+pymongo
+flask_cors
+jwt
+werkzeug.security
+datetime
+dotenv
+os
+re
+functools
