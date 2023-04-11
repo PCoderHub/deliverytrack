@@ -20,8 +20,13 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": app_url}})
 
 load_dotenv()
 
-client = MongoClient(os.environ.get('MONGODB_URL'))
-db = client[os.environ.get('MONGODB_DATABASE')]
+dbclient = os.environ.get('MONGODB_URL')
+dbname = os.environ.get('MONGODB_DATABASE')
+
+print(dbclient, dbname,'print')
+
+client = MongoClient(dbclient)
+db = client[dbname]
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 wrong_attempts = {}
